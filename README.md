@@ -1,0 +1,1 @@
+Notes for thhe AWS SAA-C02 Exam
