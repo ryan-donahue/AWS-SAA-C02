@@ -158,25 +158,25 @@
 * VPC Basics
 ** Architecture within Default VPC
 
-  # Default VPC Facts
-  - One per region - can be removed and recreated so it's possible to
-    not have a Default VPC if it has been deleted
-  - Default VPC is always the same: 172.31.0.0/16
-  - Always have the same predictable structure but this structure can't
-    be changed which makes Default VPCs limited for any production
-    deployments
-  - Each Default VPC automatically gets the following security features
-    which limit incoming and outgoing data transfer
-    - Internet Gateway(IGW)
-    - Security Group(SG)
-    - Network Access Control List(NACL)
-  - Anything placed in the Default VPC subnets is assigned a public IPv4
-    address. This is an example of how some private services can be made
-    public by projecting parts of themselves into the AWS public zone(see
-    Public
+*** Default VPC Facts
+   - One per region - can be removed and recreated so it's possible to
+     not have a Default VPC if it has been deleted
+   - Default VPC is always the same: 172.31.0.0/16
+   - Always have the same predictable structure but this structure can't
+     be changed which makes Default VPCs limited for any production
+     deployments
+   - Each Default VPC automatically gets the following security features
+     which limit incoming and outgoing data transfer
+     - Internet Gateway(IGW)
+     - Security Group(SG)
+     - Network Access Control List(NACL)
+   - Anything placed in the Default VPC subnets is assigned a public IPv4
+     address. This is an example of how some private services can be made
+     public by projecting parts of themselves into the AWS public zone(see
+     Public
     
       
-    # VPC CIDR
+*** VPC CIDR
     - Defines the start and end IP range that a VPC can use
     - If anything needs to communicate with a VPC, and assuming
       you allow it, it needs to communicate to that VPC CIDR
@@ -188,9 +188,7 @@
       - 16 /20 subnets can be created from a /16 address. That means
 	that the Default VPC CIDR can handle up to 16 AZs
 
-** Default vs Custom VPC
-
-   # Custom VPC
+*** Custom VPC
    - Multiple VPCs per region
    - Can be configured how you want, so long as you stay within the
    - rules and limits of VPC
@@ -202,7 +200,7 @@
      - can be configured to communicate with other cloud platforms
        and your on-premises networks
 
-   # Default VPC
+*** Default VPC
    - 1 Default VPC per region
    - Initially configured by AWS
    - Come pre-configured in a very specific way and all the networking
@@ -243,17 +241,17 @@
    - storage that's on the local hose
    - Elastic Block Storage(EBS)
 
-**  Instance Lifecycle
-    States
-    - Running
-    - Stopped
-    - Terminated
+** Instance Lifecycle
+   States
+   - Running
+   - Stopped
+   - Terminated
       
-    | State      | CPU | Memory | Storage | Networking |
-    |------------+-----+--------+---------+------------|
-    | Running    | X   | X      | X       | X          |
-    | Stopped    |     |        | X       |            |
-    | Terminated |     |        |         |            |
+   | State      | CPU | Memory | Storage | Networking |
+   |------------+-----+--------+---------+------------|
+   | Running    | X   | X      | X       | X          |
+   | Stopped    |     |        | X       |            |
+   | Terminated |     |        |         |            |
 
 ** Amazon Machine Image (AMI)
    - An AMI can create an EC2 instance and,
@@ -274,8 +272,8 @@
    - Windows - RDP/port 3389
    - Linux - SSH/port 22
 
-**  DEMO: Create an EC2 Instance
-    1. Create the instance
-    2. Put it in the default VPC
-    3. Give it a public IP address
-    4. Connect to it using SSH
+** DEMO: Create an EC2 Instance
+   1. Create the instance
+   2. Put it in the default VPC
+   3. Give it a public IP address
+   4. Connect to it using SSH
