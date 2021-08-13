@@ -258,9 +258,9 @@
      device ID
 
 ** Connecting to EC2
-   - Windows - RDP/port 3389
-   - Linux - SSH/port 22
-
+   - Windows - RDP =port: 3389=
+   - Linux - SSH =port: 22=
+     
 ** DEMO: Create an EC2 Instance
    1. Create the instance
    2. Put it in the default VPC
