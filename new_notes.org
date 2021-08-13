@@ -214,6 +214,7 @@
 
 * Elastic Compute Cloud(EC2) Basics
 
+** EC2 Facts
   - Provides access to virtual machines called instances
   - Infrastructure as a Service (IAAS)
     - Unit of consumption is the instance
@@ -232,50 +233,49 @@
   - On-demand billing per-second or per-hour based on the service
     consumed
 
-  # Instance charges
-  - Running an instance (CPU and memory usage) 
-  - Storage
-  - Extras for any commercial software the instances is launched with
+** Instance charges
+   - Running an instance (CPU and memory usage) 
+   - Storage
+   - Extras for any commercial software the instances is launched with
 
-  # Storage
-  Instances can use a number of different storage. Two of which are
-  - storage that's on the local hose
-  - Elastic Block Storage(EBS)
+** Storage
+   Instances can use a number of different storage. Two of which are
+   - storage that's on the local hose
+   - Elastic Block Storage(EBS)
 
-  # Instance Lifecycle
-  States
-  - Running
-  - Stopped
-  - Terminated
-
+**  Instance Lifecycle
+    States
+    - Running
+    - Stopped
+    - Terminated
+      
     | State      | CPU | Memory | Storage | Networking |
     |------------+-----+--------+---------+------------|
     | Running    | X   | X      | X       | X          |
     | Stopped    |     |        | X       |            |
     | Terminated |     |        |         |            |
 
-    
-  # Amazon Machine Image (AMI)
-  - An AMI can create an EC2 instance and,
-  - An AMI can be created /from/ an EC2 instance
+** Amazon Machine Image (AMI)
+   - An AMI can create an EC2 instance and,
+   - An AMI can be created /from/ an EC2 instance
 
-  An AMI contains
-  - Permissions: Control which accounts can use the AMI
-    - Public: Everyone is allowed to launch instances from that AMI
-    - Owner: Implicitly allowed to create EC2 instance from the AMI
-    - Explicit: Owner specifies which /AWS accounts/ have access to
+   An AMI contains
+   - Permissions: Control which accounts can use the AMI
+   - Public: Everyone is allowed to launch instances from that AMI
+   - Owner: Implicitly allowed to create EC2 instance from the AMI
+   - Explicit: Owner specifies which /AWS accounts/ have access to
       the AMI
-  - Root Volume: boot volume for the instance along with any other
-    drives
-  - Block Device Mapping: configuration which maps the drives to the
-    device ID
+   - Root Volume: boot volume for the instance along with any other
+     drives
+   - Block Device Mapping: configuration which maps the drives to the
+     device ID
 
-  # Connecting to EC2
-  - Windows - RDP/port 3389
-  - Linux - SSH/port 22
+** Connecting to EC2
+   - Windows - RDP/port 3389
+   - Linux - SSH/port 22
 
-  # DEMO: Create an EC2 Instance
-  1. Create the instance
-  2. Put it in the default VPC
-  3. Give it a public IP address
-  4. Connect to it using SSH
+**  DEMO: Create an EC2 Instance
+    1. Create the instance
+    2. Put it in the default VPC
+    3. Give it a public IP address
+    4. Connect to it using SSH
