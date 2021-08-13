@@ -81,7 +81,8 @@
    - Private Cloud :: using on-premises *real* cloud
    - Multi-Cloud :: using *more than 1* public cloud
    - Hybrid Cloud :: *Public* and *Private* clouds    
-     /Note/: Hybrid Cloud is *NOT* public cloud + legacy on-premises
+
+      /Note/: Hybrid Cloud is *NOT* public cloud + legacy on-premises
 
 ** Service Models (Cloud Service Models)
    - An Infrastructure Stack is a collection of things which that
