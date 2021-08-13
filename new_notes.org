@@ -103,62 +103,52 @@
      infrastructure stack, you are responsible for managmement
 
 
-* AWS Fundamentals
-** Public vs Private Services
-   
+* AWS Fundamantals
+** Global Infrastructure
+   Services can be described as having one of three resiliency types
+   - Global Resilience
+     - A service that operates globally with a single database. It's one
+       product and it's data is replicated across multiple regions inside
+       AWS (ex. IAM, Route53)
+   - Regional Resilience
+     - Services which operate in a single region with one set of data per region
+       - If the region fails, then the entire service fails
+   - Zone Resilience
+     Services run from a single Availability Zone
 
+   - The AWS Global Infrastructure is divided into
+     - AWS Regions
+       These are full deployments of AWS infrastructure
+     - AWS Edge Locations
+       - Smaller than regions
+       - Content Distribution Services
+       - Some types of Edge Computing
+       - Many more locations
 
+   - Global Services don't reside in a region so you don't choose one
+     in the dropdown
 
-* Global Infrastructure
+   - Region Benefits
+     - Geographically Separate
+       This provides isolated fault tolerance
+     - Geopolitical Separations
+       Difference governance
+     - Locaton Control(performance)
 
-  Services can be described as having one of three resiliency types
-  - Global Resilience
-    - A service that operates globally with a single database. It's one
-      product and it's data is replicated across multiple regions inside
-      AWS (ex. IAM, Route53)
-  - Regional Resilience
-    - Services which operate in a single region with one set of data per region
-      - If the region fails, then the entire service fails
-  - Zone Resilience
-    Services run from a single Availability Zone
+   - Naming Examples
+     Region Name Example: Asia Pacific (Sydney)  
+     Region Code Example: `ap-southeast-2`
+     Availability Zone:   `ap-southeast-2a`, `ap-southeast-2b`
 
-  - The AWS Global Infrastructure is divided into
-    - AWS Regions
-      These are full deployments of AWS infrastructure
-    - AWS Edge Locations
-      - Smaller than regions
-      - Content Distribution Services
-      - Some types of Edge Computing
-      - Many more locations
-
-  - Global Services don't reside in a region so you don't choose one
-    in the dropdown
-
-  - Region Benefits
-    - Geographically Separate
-      This provides isolated fault tolerance
-    - Geopolitical Separations
-      Difference governance
-    - Locaton Control(performance)
-
-  - Naming Examples
-    Region Name Example: Asia Pacific (Sydney)  
-    Region Code Example: ap-southeast-2
-    Availability Zone:   ap-southeast-2a, ap-southeast-2b...
-
-  - Availability Zones
-    - Each region contains multiple (2 or more) AZs
-    - AZs provide isolated infrastructure inside a region
-      - Isolated compute, storage, networking, power, and facilities
-    - High-speed low-latency across AZs
-    - VPCs can span across AZs to provide resiliency
-  
-  
+   - Availability Zones
+     - Each region contains multiple (2 or more) AZs
+     - AZs provide isolated infrastructure inside a region
+       - Isolated compute, storage, networking, power, and facilities
+     - High-speed low-latency across AZs
+     - VPCs can span across AZs to provide resiliency
    
 * VPC Basics
-** Architecture within Default VPC
-
-*** Default VPC Facts
+** Default VPC Facts
    - One per region - can be removed and recreated so it's possible to
      not have a Default VPC if it has been deleted
    - Default VPC is always the same: 172.31.0.0/16
@@ -176,19 +166,19 @@
      Public
     
       
-*** VPC CIDR
-    - Defines the start and end IP range that a VPC can use
-    - If anything needs to communicate with a VPC, and assuming
-      you allow it, it needs to communicate to that VPC CIDR
-    - Custom VPC can have multipe CIDR ranges whereas the VPC CIDR
-      for the Default VPC is always the same: 172.31.0.0/16
-    - The VPC CIDR is divide up so that each subned per AZ gets
-      a slice of the CIDR range
-      - A /20 subnet is created within each AZ within the region
-      - 16 /20 subnets can be created from a /16 address. That means
-	that the Default VPC CIDR can handle up to 16 AZs
+** VPC CIDR
+   - Defines the start and end IP range that a VPC can use
+   - If anything needs to communicate with a VPC, and assuming
+     you allow it, it needs to communicate to that VPC CIDR
+   - Custom VPC can have multipe CIDR ranges whereas the VPC CIDR
+     for the Default VPC is always the same: 172.31.0.0/16
+   - The VPC CIDR is divide up so that each subned per AZ gets
+     a slice of the CIDR range
+     - A /20 subnet is created within each AZ within the region
+     - 16 /20 subnets can be created from a /16 address. That means
+       that the Default VPC CIDR can handle up to 16 AZs
 
-*** Custom VPC
+** Custom VPC
    - Multiple VPCs per region
    - Can be configured how you want, so long as you stay within the
    - rules and limits of VPC
@@ -200,16 +190,13 @@
      - can be configured to communicate with other cloud platforms
        and your on-premises networks
 
-*** Default VPC
+** Default VPC
    - 1 Default VPC per region
    - Initially configured by AWS
    - Come pre-configured in a very specific way and all the networking
      configuration is handled by AWS
      - Because of this they are a lot less flexible than custom VPCs
-
-       
-   
-
+        
 * Elastic Compute Cloud(EC2) Basics
 
 ** EC2 Facts
