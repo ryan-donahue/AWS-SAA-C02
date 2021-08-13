@@ -213,4 +213,41 @@
    
 
 * Elastic Compute Cloud(EC2) Basics
-  
+
+  - Provides access to virtual machines called instances
+  - Infrastructure as a Service (IAAS)
+    - Unit of consumption is the instance
+  - Instance: An operation system configured in a certain way
+    with a certain set of allocated resources
+  - EC2 is a private service
+    - It runs in the private AWS zone
+    - Instances are launched within a single VPC subnet
+    - It must be configured with public access due to it being a
+      private service. This is done by putting it in a VPC subnet that
+      supports VPC access. The default VPC supports this out of the
+      box. Custom VPCs need to be configured
+  - EC2 is AZ Resilient
+    This is evident since it is launched within a specific subnet
+    and subnets are are availability zones
+  - On-demand billing per-second or per-hour based on the service
+    consumed
+
+  # Instance charges
+  - Running an instance (CPU and memory usage) 
+  - Storage
+  - Extras for any commercial software the instances is launched with
+
+  # Storage
+  Instances can use a number of different storage. Two of which are
+  - storage that's on the local hose
+  - Elastic Block Storage(EBS)
+
+  # Instance Lifecycle
+  - Main
+
+    |            | CPU | Memory | Storage | Networking |
+    |------------+-----+--------+---------+------------|
+    | Running    | X   | X      | X       | X          |
+    | Stopped    |     |        | X       |            |
+    | Terminated |     |        |         |            |
+    
