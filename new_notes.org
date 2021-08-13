@@ -77,11 +77,11 @@
       Usage is measured. Pay for what you consume
 
 ** Public vs Private vs Multi vs Hybrid
-   - Public Cloud = using *1* public cloud
-   - Private Cloud = using on-premises *real* cloud
-   - Multi-Cloud = using *more than 1* public cloud
-   - Hybrid Cloud = *Public* and *Private* clouds    
-     Note: Hybrid Cloud is *NOT* public cloud + legacy on-premises
+   - Public Cloud :: using *1* public cloud
+   - Private Cloud :: using on-premises *real* cloud
+   - Multi-Cloud :: using *more than 1* public cloud
+   - Hybrid Cloud :: *Public* and *Private* clouds    
+     /Note/: Hybrid Cloud is *NOT* public cloud + legacy on-premises
 
 ** Service Models (Cloud Service Models)
    - An Infrastructure Stack is a collection of things which that
@@ -147,6 +147,7 @@
      - High-speed low-latency across AZs
      - VPCs can span across AZs to provide resiliency
    
+
 * VPC Basics
 ** Default VPC Facts
    - One per region - can be removed and recreated so it's possible to
@@ -197,8 +198,8 @@
      configuration is handled by AWS
      - Because of this they are a lot less flexible than custom VPCs
         
-* Elastic Compute Cloud(EC2) Basics
 
+* Elastic Compute Cloud(EC2) Basics
 ** EC2 Facts
   - Provides access to virtual machines called instances
   - Infrastructure as a Service (IAAS)
