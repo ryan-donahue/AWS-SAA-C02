@@ -136,9 +136,9 @@
      - Locaton Control(performance)
 
    - Naming Examples
-     Region Name Example: Asia Pacific (Sydney)  
-     Region Code Example: `ap-southeast-2`
-     Availability Zone:   =ap-southeast-2a=, =ap-southeast-2b=
+     - Region Name Example: Asia Pacific (Sydney)  
+     - Region Code Example: =ap-southeast-2=
+     - Availability Zone:   =ap-southeast-2a=, =ap-southeast-2b=
 
    - Availability Zones
      - Each region contains multiple (2 or more) AZs
