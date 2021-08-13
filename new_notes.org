@@ -243,11 +243,39 @@
   - Elastic Block Storage(EBS)
 
   # Instance Lifecycle
-  - Main
+  States
+  - Running
+  - Stopped
+  - Terminated
 
-    |            | CPU | Memory | Storage | Networking |
+    | State      | CPU | Memory | Storage | Networking |
     |------------+-----+--------+---------+------------|
     | Running    | X   | X      | X       | X          |
     | Stopped    |     |        | X       |            |
     | Terminated |     |        |         |            |
+
     
+  # Amazon Machine Image (AMI)
+  - An AMI can create an EC2 instance and,
+  - An AMI can be created /from/ an EC2 instance
+
+  An AMI contains
+  - Permissions: Control which accounts can use the AMI
+    - Public: Everyone is allowed to launch instances from that AMI
+    - Owner: Implicitly allowed to create EC2 instance from the AMI
+    - Explicit: Owner specifies which /AWS accounts/ have access to
+      the AMI
+  - Root Volume: boot volume for the instance along with any other
+    drives
+  - Block Device Mapping: configuration which maps the drives to the
+    device ID
+
+  # Connecting to EC2
+  - Windows - RDP/port 3389
+  - Linux - SSH/port 22
+
+  # DEMO: Create an EC2 Instance
+  1. Create the instance
+  2. Put it in the default VPC
+  3. Give it a public IP address
+  4. Connect to it using SSH
