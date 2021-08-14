@@ -321,16 +321,15 @@
   3. CloudWatch Events
   
   - Namespaces :: Used to keep data organized
-    - AWS reserves the =AWS/...= namespace (ex. =AWS/EC2=)
-
-    
+    - AWS reserves the =AWS/...= namespace (ex. =AWS/EC2=)   
   - Metric :: A collection of related data points in a time-orderd
     structure
   - Datapoints :: consist of a timestamp (=2019-12-03T08:45:45Z=) and
     a value (=98.3=)
-
-    
-
-
+  - Dimensions :: Separate datapoints for different /things/ or
+    /perspectives/ within the same metric
+  - Alarms :: The service that allows actions to be configured /based
+    on/ metrics
+    - Three states: Ok, Alarm, Insufficent Data
 
 * Route53
