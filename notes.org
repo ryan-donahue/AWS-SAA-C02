@@ -314,23 +314,23 @@
 
   - CloudWatch :: An AWS public service that collects and manages
     operational data
+
+  CloudWatch consists of three main products
+  1. CloudWatch - Metrics
+  2. CloudWatch Logs
+  3. CloudWatch Events
+  
   - Namespaces :: Used to keep data organized
+    - AWS reserves the =AWS/...= namespace (ex. =AWS/EC2=)
+
+    
   - Metric :: A collection of related data points in a time-orderd
     structure
   - Datapoints :: consist of a timestamp (=2019-12-03T08:45:45Z=) and
     a value (=98.3=)
 
     
-  CloudWatch consists of three main products
-  1. CloudWatch - Metrics
-  2. CloudWatch Logs
-  3. CloudWatch Events
-
-  - AWS reserves the =AWS/...= namespace (ex. =AWS/EC2=)
 
 
-  Datapoints consist of
-  - Timestamp = Z=
-  - Value = =98.3=
-    
+
 * Route53
