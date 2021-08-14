@@ -1,16 +1,16 @@
 * Cloud Fundamentals
 ** What defines Cloud Computing?
-   1. On-Demand Self-Service
-      Provision and terminate using a UI/CLI without human interaction
-   2. Broad Network Access
-      Access services over any networks, on any devices, using standard
-      protocols and methods
-   3. Resource Pooling
-      Economies of scale, cheaper service
-   4. Rapid Elasticity
-      Scale up and down automatically in response to system load
-   5. Mesured Service
-      Usage is measured. Pay for what you consume
+   - On-Demand Self-Service
+     Provision and terminate using a UI/CLI without human interaction
+   - Broad Network Access
+     Access services over any networks, on any devices, using standard
+     protocols and methods
+   - Resource Pooling
+     Economies of scale, cheaper service
+   - Rapid Elasticity
+     Scale up and down automatically in response to system load
+   - Mesured Service
+     Usage is measured. Pay for what you consume
 
 ** Public vs Private vs Multi vs Hybrid
    - Public Cloud :: using *1* public cloud
