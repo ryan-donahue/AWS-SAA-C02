@@ -324,7 +324,7 @@
   related metrics
   - AWS reserves the =AWS/...= namespace (ex. =AWS/EC2=)
 
-  Metric :: A collection of related data points in a time-orderd
+  - Metric :: A collection of related data points in a time-orderd
   structure
 
   Metrics don't run on a specific server. To keep things separated
