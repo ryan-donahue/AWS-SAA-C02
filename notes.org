@@ -91,13 +91,13 @@
    DNS is a discovery service that translates domain
    names in to IP addresses.
 
-   Things to remember
-   - DNS Client :: The device or thing (i.e. laptop, phone) which wants
-     the data that DNS has, which is an IP address
-   - Resolver :: Queries the DNS system on your behalf
-   - Zone :: Part of the DNS database (e.g. amazon.com)
-   - Zonefile :: Physical database for a zone
-   - DNS Nameserver :: Server which hosts the Zonefile
+*** Things to remember
+    - DNS Client :: The device or thing (i.e. laptop, phone) which wants
+      the data that DNS has, which is an IP address
+    - Resolver :: Queries the DNS system on your behalf
+    - Zone :: Part of the DNS database (e.g. amazon.com)
+    - Zonefile :: Physical database for a zone
+    - DNS Nameserver :: Server which hosts the Zonefile
 
    The Goal Process of DNS
    1. Find the name server which hosts a particular zone file
