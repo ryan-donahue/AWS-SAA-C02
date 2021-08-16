@@ -100,9 +100,10 @@
     - DNS Nameserver :: Server which hosts the Zonefile
     - Root Hints :: Contains a list of all DNS root servers. It is
       provided by the OS vender
-    - Root Server :: The root server is what hosts the DNS Root Zone
+    - Root Server :: The root server is what hosts the DNS Root Zone.
+      There are 13 root servers ran by 12 companies (VeriSign has two)
     - Root Zone :: Database that has the authoritative list of all
-      the top-level domains
+      the top-level domains. The Root Zone is managed by IANA
     - gTLD :: Generic top-level domain (.com .org)
     - ccTLD :: Country-code top level domain (.uk .eu)
 
@@ -113,7 +114,13 @@
     3. Resolver server queries that name server
     4. Data is retrieved from the name server
     5. The Resolver passes the data back to the DNS Client
-     
+
+*** DNS Record Types
+    - Nameserver (NS) ::
+    - A and AAAA :: Map Hostnames to IP Addresses.
+      - A record maps to an IPv4 address
+      - AAAA record maps to an IPV6 address
+
 * AWS Features
    
 ** High-Availability vs Fault-Tolerance vs Disaster Recovery
