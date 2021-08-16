@@ -99,7 +99,7 @@
     - Zonefile :: Physical database for a zone
     - DNS Nameserver :: Server which hosts the Zonefile
 
-   The Goal Process of DNS
+   *The Goal Process of DNS*
    1. Find the name server which hosts a particular zone file
    2. Query that name server for a record that is in the zone file
      
