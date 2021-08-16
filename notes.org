@@ -116,7 +116,8 @@
     5. The Resolver passes the data back to the DNS Client
 
 *** DNS Record Types
-    - Nameserver (NS) ::
+    - Nameserver (NS) :: Identifies the name servers, responsible for
+      your DNS zone.
     - A and AAAA :: Map Hostnames to IP Addresses.
       - A record maps to an IPv4 address
       - AAAA record maps to an IPV6 address
