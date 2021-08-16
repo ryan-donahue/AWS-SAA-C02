@@ -120,6 +120,21 @@
     - A and AAAA :: Map Hostnames to IP Addresses.
       - A record maps to an IPv4 address
       - AAAA record maps to an IPV6 address
+    - CNAME :: Host-to-host records. For a given zone, the CNAME record type lets you create
+      the equivalent of DNS shortcuts
+      - CNAME ftp > server: 172.217.25.36 (A record since IPv4)
+      - CNAME mail > server: 172.217.25.36
+      - CNAME www > server: 172.217.25.36
+      - *NOTE*: CNAMEs /cannot/ point to IP addresses, only other names
+    - MX :: Find a mail server (SMTP) for a domain
+    - TXT :: Allows you to add arbitrary text to a domain. One reason for this
+      is to be able to prove ownership for a domain
+
+*** Time-To-Live (TTL)
+    - TTL :: Time to live (TTL) is what dictates how long your records
+      stay cached. For example, for how long your A record will be
+      cached before the retreival of a new copy of the record from DNS
+      servers.
 
 * AWS Features
    
