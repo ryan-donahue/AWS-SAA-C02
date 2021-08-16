@@ -116,7 +116,7 @@
     5. The Resolver passes the data back to the DNS Client
 
 *** DNS Record Types
-    - Nameserver (NS) :: Identifies the name servers, responsible for
+    - Nameserver (NS) :: Identifies the name servers responsible for
       your DNS zone.
     - A and AAAA :: Map Hostnames to IP Addresses.
       - A record maps to an IPv4 address
@@ -127,6 +127,11 @@
       - CNAME mail > server: 172.217.25.36
       - CNAME www > server: 172.217.25.36
       - *NOTE*: CNAMEs /cannot/ point to IP addresses, only other names
+
+| Host                  | Type  | Points to:        | TTL    |
+| panel.cloudns.net     | A     | 185.107.80.223    | 1 Hour |
+| www.panel.cloudns.net | CNAME | panel.cloudns.net | 1 Hour |
+    
     - MX :: Find a mail server (SMTP) for a domain
     - TXT :: Allows you to add arbitrary text to a domain. One reason for this
       is to be able to prove ownership for a domain
