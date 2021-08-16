@@ -88,25 +88,31 @@
 
 ** Domain Name System (DNS)
 
-   DNS is a discovery service that translates domain
-   names in to IP addresses.
+   DNS is a discovery service that translates domain names into IP
+   addresses.
 
 *** Things to remember
     - DNS Client :: The device or thing (i.e. laptop, phone) which wants
       the data that DNS has, which is an IP address
-    - Resolver :: Queries the DNS system on your behalf
+    - DNS Resolver :: Queries the DNS system on your behalf
     - Zone :: Part of the DNS database (e.g. amazon.com)
     - Zonefile :: Physical database for a zone
     - DNS Nameserver :: Server which hosts the Zonefile
+    - Root Hints :: Contains a list of all DNS root servers. It is
+      provided by the OS vender
+    - Root Server :: The root server is what hosts the DNS Root Zone
+    - Root Zone :: Database that has the authoritative list of all
+      the top-level domains
+    - gTLD :: Generic top-level domain (.com .org)
+    - ccTLD :: Country-code top level domain (.uk .eu)
 
-***   The Goal Process of DNS
-      1. DNS Client queries the Resolver server
-      2. Resolver server needs to locate the correct name server
-         for the given zone
-      3. Resolver server queries that name server
-      4. Once the data is retrieved, the Resolver passes the data
-         back to the DNS Client
-
+*** The Goal Process of DNS
+    1. DNS Client queries the Resolver server
+    2. Resolver server needs to locate the correct name server
+       for the given zone
+    3. Resolver server queries that name server
+    4. Data is retrieved from the name server
+    5. The Resolver passes the data back to the DNS Client
      
 * AWS Features
    
