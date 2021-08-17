@@ -128,9 +128,9 @@
       - CNAME www > server: 172.217.25.36
       - *NOTE*: CNAMEs /cannot/ point to IP addresses, only other names
 
-| Host                  | Type  | Points to:        | TTL    |
-| panel.cloudns.net     | A     | 185.107.80.223    | 1 Hour |
-| www.panel.cloudns.net | CNAME | panel.cloudns.net | 1 Hour |
+    | Host                  | Type  | Points to:        | TTL    |
+    | panel.cloudns.net     | A     | 185.107.80.223    | 1 Hour |
+    | www.panel.cloudns.net | CNAME | panel.cloudns.net | 1 Hour |
     
     - MX :: Find a mail server (SMTP) for a domain
     - TXT :: Allows you to add arbitrary text to a domain. One reason for this
@@ -141,6 +141,7 @@
       stay cached. For example, for how long your A record will be
       cached before the retreival of a new copy of the record from DNS
       servers.
+
 
 * AWS Features
    
@@ -153,6 +154,7 @@
      when a disaster occurs, you don't lose anything irreplaceable and
      can rebuild after the disaster
    
+
 ** AWS Public vs Private Services
   - Public Cloud :: using *1* public cloud
   - Private Cloud :: using on-premises *real* cloud
@@ -207,13 +209,26 @@
 
 
 * Default Virtual Public Cloud (VPC)
-
-** Default VPC Facts
+ 
+** VPC CIDR
+   - Defines the start and end IP range that a VPC can use
+   - If anything needs to communicate with a VPC, and assuming
+     you allow it, it needs to communicate to that VPC CIDR
+   - Custom VPC can have multipe CIDR ranges whereas the VPC CIDR
+     for the Default VPC is always the same: 172.31.0.0/16
+   - The VPC CIDR is divide up so that each subnet per AZ gets
+     a slice of the CIDR range
+     - A /20 subnet is created within each AZ within the region
+     - 16 /20 subnets can be created from a /16 address. That means
+       that the Default VPC CIDR can handle up to 16 AZs
+       
+** Default VPC
    - One per region - can be removed and recreated so it's possible to
      not have a Default VPC if it has been deleted
    - Default VPC is always the same: 172.31.0.0/16
-   - Always have the same predictable structure but this structure can't
-     be changed which makes Default VPCs limited for any production
+   - The Default VPC is configured which means that it is always have
+     the same predictable structure but this structure can't be
+     changed which makes Default VPCs limited for any production
      deployments
    - Each Default VPC automatically gets the following security features
      which limit incoming and outgoing data transfer
@@ -224,20 +239,7 @@
      address. This is an example of how some private services can be made
      public by projecting parts of themselves into the AWS public zone(see
      Public
-    
       
-** VPC CIDR
-   - Defines the start and end IP range that a VPC can use
-   - If anything needs to communicate with a VPC, and assuming
-     you allow it, it needs to communicate to that VPC CIDR
-   - Custom VPC can have multipe CIDR ranges whereas the VPC CIDR
-     for the Default VPC is always the same: 172.31.0.0/16
-   - The VPC CIDR is divide up so that each subned per AZ gets
-     a slice of the CIDR range
-     - A /20 subnet is created within each AZ within the region
-     - 16 /20 subnets can be created from a /16 address. That means
-       that the Default VPC CIDR can handle up to 16 AZs
-
 ** Custom VPC
    - Multiple VPCs per region
    - Can be configured how you want, so long as you stay within the
@@ -250,20 +252,13 @@
      - can be configured to communicate with other cloud platforms
        and your on-premises networks
 
-** Default VPC
-   - 1 Default VPC per region
-   - Initially configured by AWS
-   - Come pre-configured in a very specific way and all the networking
-     configuration is handled by AWS
-     - Because of this they are a lot less flexible than custom VPCs
-
 
 * Elastic Compute Cloud (EC2)
 ** EC2 Facts
   - Provides access to virtual machines called instances
   - Infrastructure as a Service (IAAS)
     - Unit of consumption is the instance
-  - Instance: An operation system configured in a certain way
+  - Instance :: An operation system configured in a certain way
     with a certain set of allocated resources
   - EC2 is a private service
     - It runs in the private AWS zone
@@ -285,7 +280,7 @@
 
 ** Storage
    Instances can use a number of different storage. Two of which are
-   - storage that's on the local hose
+   - Local host storage
    - Elastic Block Storage(EBS)
 
 ** Instance Lifecycle
@@ -305,22 +300,21 @@
    - An AMI can be created /from/ an EC2 instance
 
    An AMI contains
-   - Permissions: Control which accounts can use the AMI
-   - Public: Everyone is allowed to launch instances from that AMI
-   - Owner: Implicitly allowed to create EC2 instance from the AMI
-   - Explicit: Owner specifies which /AWS accounts/ have access to
-      the AMI
-   - Root Volume: boot volume for the instance along with any other
+   - Permissions :: Control which accounts can use the AMI
+     - Public: Everyone is allowed to launch instances from that AMI
+     - Owner: Implicitly allowed to create EC2 instance from the AMI
+     - Explicit: Owner specifies which /AWS accounts/ have access to
+       the AMI
+   - Root Volume :: Boot volume for the instance along with any other
      drives
-   - Block Device Mapping: configuration which maps the drives to the
+   - Block Device Mapping :: Configuration which maps the drives to the
      device ID
 
 ** Connecting to EC2
    - Windows - RDP =port: 3389=
    - Linux - SSH =port: 22=
 
-
-
+     
 * Simple Storage Service (S3)
   - Global storage platform
   - Regionally Resilient: Data is replicated across availability
