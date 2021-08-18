@@ -209,55 +209,67 @@
       
 
 * IAM, Accounts, and Organizations
-  
-** IAM Identity Policies
-
   - IAM Policy :: A set of security statements in AWS that grants or
     denies access to AWS products and features for any identity which
     uses that policy
   - Identities :: IAM Users, IAM Groups, IAM Roles
-  - Autentication ::
-  - Authorization :: 
+  - IAM Users :: An identity used for anything requiring long-term
+    AWS access (e.g. humans, applications, service accounts)
+  - Principle :: Represents an identity trying to access an AWS account
+  - Authentication :: Process where the Principal proves to IAM that it
+    is an identity that it claims to be
+  - Authorization :: Authorization is IAM checking the statements that
+    apply to that identity and either allowing or denying that access
+  - Authenticated Identity :: Authentication is how a Principal can
+    prove to IAM that it is the identity that it claims to be using
+    Username and Password or Access Keys
+  - Amazon Resource Name :: Uniquely identifies resources within any
+    AWS accounts
 
-*** IAM Policy Documents
-   
-   IAM Policy documents are a collection of Statements. These statements
-   are what grant or deny access.
+*** IAM Policy Documents  
+    IAM Policy documents are a collection of Statements. These statements
+    are what grant or deny access.
 
-   - Statement ID (SID) :: /(optional)/ Lets you identify a statement
-     and what it does
-   - Effect :: Controls what AWS does if the action and the resource
-     parts of the statement match the operation that you're attempting
-     to do with AWS
-   - Action :: Matches one or more specific actions
-     Three types of actions
-     - Specific individual action
-     - Wildcard
-     - List of multiple independent actions
-   - Resource :: Mathes one or more specific resources
+    - Statement ID (SID) :: /(optional)/ Lets you identify a statement
+      and what it does
+    - Effect :: Controls what AWS does if the action and the resource
+      parts of the statement match the operation that you're attempting
+      to do with AWS
+    - Action :: Matches one or more specific actions
+      Three types of actions
+      - Specific individual action
+      - Wildcard
+      - List of multiple independent actions
+    - Resource :: Matches one or more specific resources
     
-   When there exists overlap of one or more statements, the way in which
-   the access is determined is via the following logic
-   1. Explicit DENY
-   2. Explicit ALLOW
-   3. Default DENY(implicit)
+    When there exists overlap of one or more statements, the way in which
+    the access is determined is via the following logic
+    1. Explicit DENY
+    2. Explicit ALLOW
+    3. Default DENY(implicit)
 
-   AWS Identities start off with no access to AWS resources (Step 3
-   above).  If they're not allowed access, they have no access.
+    AWS Identities start off with no access to AWS resources (Step 3
+    above).  If they're not allowed access, they have no access.
 
-   There are two types of IAM Policies
-   1. Managed Policies
-      - Reusable
-      - Low Management Overhead
-      - Should be used for the default, normal operational rights
-        within your business
-   2. Inline Policies 
-      - These are used for special or exceptional ALLOY or DENY
-        statements
+    There are two types of IAM Policies
+    1. Managed Policies
+       - Reusable
+       - Low Management Overhead
+       - Should be used for the default, normal operational rights
+         within your business
+    2. Inline Policies 
+       - These are used for special or exceptional ALLOY or DENY
+         statements
 
-   There are two main types of Managed Policies
-   1. AWS Managed Policies
-   2. Customer-Managed Policies
+    There are two main types of Managed Policies
+    1. AWS Managed Policies
+    2. Customer-Managed Policies
+
+
+*** IAM User Limits
+    - 5,000 IAM Users per account
+    - IAM User can be a member of 10 groups
+    
 
 * Default Virtual Public Cloud (VPC)
  
@@ -434,5 +446,6 @@
   - Alarms :: The service that allows actions to be configured /based
     on/ metrics
     - Three states: Ok, Alarm, Insufficent Data
+
 
 * Route53
