@@ -206,7 +206,58 @@
       - Isolated compute, storage, networking, power, and facilities
     - High-speed low-latency across AZs
     - VPCs can span across AZs to provide resiliency
+      
 
+* IAM, Accounts, and Organizations
+  
+** IAM Identity Policies
+
+  - IAM Policy :: A set of security statements in AWS that grants or
+    denies access to AWS products and features for any identity which
+    uses that policy
+  - Identities :: IAM Users, IAM Groups, IAM Roles
+  - Autentication ::
+  - Authorization :: 
+
+*** IAM Policy Documents
+   
+   IAM Policy documents are a collection of Statements. These statements
+   are what grant or deny access.
+
+   - Statement ID (SID) :: /(optional)/ Lets you identify a statement
+     and what it does
+   - Effect :: Controls what AWS does if the action and the resource
+     parts of the statement match the operation that you're attempting
+     to do with AWS
+   - Action :: Matches one or more specific actions
+     Three types of actions
+     - Specific individual action
+     - Wildcard
+     - List of multiple independent actions
+   - Resource :: Mathes one or more specific resources
+    
+   When there exists overlap of one or more statements, the way in which
+   the access is determined is via the following logic
+   1. Explicit DENY
+   2. Explicit ALLOW
+   3. Default DENY(implicit)
+
+   AWS Identities start off with no access to AWS resources (Step 3
+   above).  If they're not allowed access, they have no access.
+
+   There are two types of IAM Policies
+   1. Managed Policies
+      - Reusable
+      - Low Management Overhead
+      - Should be used for the default, normal operational rights
+        within your business
+   2. Inline Policies 
+      - These are used for special or exceptional ALLOY or DENY
+        statements
+
+   There are two main types of Managed Policies
+   1. AWS Managed Policies
+   2. Customer-Managed Policies
 
 * Default Virtual Public Cloud (VPC)
  
