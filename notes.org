@@ -209,6 +209,7 @@
       
 
 * IAM, Accounts, and Organizations
+
   - IAM Policy :: A set of security statements in AWS that grants or
     denies access to AWS products and features for any identity which
     uses that policy
@@ -291,7 +292,51 @@
     2. There is no concept of an *All Users* group. If you want all
        users added to a group (up to the 5,000 user limit) you would
        need to do that manually.
+    3. No credentials, they cannot be logged into directly
+    4. 300 Groups per AWS Account
+    5. Groups are not a true identity. They can't be referenced as a
+       principal in a policy (such as a Resource Policy), only IAM
+       Users and Roles.
     
+
+** IAM Roles
+   - Role :: Something which represents a level of access inside
+     an AWS Account. Short-term use by other identites
+
+*** IAM Roles vs IAM Users
+
+    IAM Roles and IAM Roles are both identites but whereas IAM Users
+    are used for single identites that require long-term access, IAM
+    Roles are best suited for multiple or unknown numbers of
+    principals.
+
+    If you have more than 5,000 principals, because of the number limit
+    of IAM Users, it could also be a candidate for IAM Roles
+
+    Roles are something which is generally used on a temporary basis.
+    Something becomes that role for a short period of time and then
+    stops.
+
+*** Permission Differences
+
+    IAM Users get *Identity Permissions*
+    - Managed
+    - Inline
+
+    IAM Roles get one of two types of policy
+    - Trust Policy :: Which identities can assume that role
+      - Any identites which are allowed via a Trust Policy are granted
+        *Temporary Security Credentials* which are similar to Access
+        Keys but are time-limited. Once expired the identity needs to
+        /re-assume/ the role which will generate a /new/ pair of
+        temporary security credentials.
+    - Permission Policy :: Defines what permissions are granted to
+      the temporary credentials
+    - sts:AssumeRole :: =sts= or the Secure Token Service is the service
+      that generates the temporary credentials. =sts:AssumeRole= is the
+      service that then assumes this role. 
+    
+
 * Default Virtual Public Cloud (VPC)
  
 ** VPC CIDR
