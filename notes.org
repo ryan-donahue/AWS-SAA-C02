@@ -337,6 +337,59 @@
       service that then assumes this role. 
     
 
+** When To Use Roles
+
+***  AWS Services
+
+    *Automated Temporary Permissions*
+
+     Services such as AWS Lambda. It
+     has no AWS permissions so it needs some way to get
+     permissions. Roles allow the granting of permisisons policies
+     using the =sts:AssumeRole= function which handles temporary
+     security credentials.
+
+     If you didn't use a role you'd have to hard code permissions into
+     the Lambda function. This is a) security risk and b) it causes
+     issues if you ever need to change or rotate those access keys.
+
+     It's always better for AWS products and services where possible
+     to use a role because when a role is assumed it provides a
+     temporary set of credentials with enough time to complete a task
+     and then the credentials are discarded.
+
+     *Circumventing IAM User Limits*
+
+     Because you don't know how many
+     copies of a service will be spawned you can't be sure that the
+     number will remain below the IAM User limits.
+
+*** Emergency (Break Glass) Situations
+    In the event of an emergency a user who otherwise has more restrictive
+    permissions can /assume/ a role with elevated permissions for a short
+    time. This activity will be logged.
+
+*** When Adding AWS into an Existing Corporate Environment
+    Roles are often used when you want to reuse your existing
+    identites for use within AWS (e.g. Active Directory integration,
+    Facebook, Twitter)
+    - External accounts or external identites cannot be used directly
+      to access AWS resources
+    - When integrating with things like Active Directory, you may have
+      more than 5000 identities.
+
+    The benefits of using Roles for external accounts
+    - No AWS credentials on the app. If the external application
+      is compromised, the AWS Credentials will not be exposed
+    - Uses existing customer logins
+    - Scales to millions of accounts (think mobile applications)
+
+*** Cross-account Access
+    Accounts can access each other's AWS Services without having to
+    create matching Partner account identites for each identity in
+    your own account.
+     
+   
 * Default Virtual Public Cloud (VPC)
  
 ** VPC CIDR
