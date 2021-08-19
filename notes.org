@@ -271,6 +271,27 @@
     - IAM User can be a member of 10 groups
     
 
+
+
+** IAM Groups
+
+   - IAM Groups :: Containers for Users. They exist to make organizing
+     large sets of IAM users easier
+     - IAM Groups consist of Users and Permissions
+     - *Note*: You cannot log in directly to a Group
+
+*** Benefits of IAM Groups
+    1. They allow effective administration style management
+       of users (teams, projects, etc...)
+    2. Groups can have policies attached to them, both Inline and
+       Managed
+
+*** Limitations of Groups
+    1. No nesting - No groups within groups
+    2. There is no concept of an *All Users* group. If you want all
+       users added to a group (up to the 5,000 user limit) you would
+       need to do that manually.
+    
 * Default Virtual Public Cloud (VPC)
  
 ** VPC CIDR
