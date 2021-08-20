@@ -389,6 +389,56 @@
     create matching Partner account identites for each identity in
     your own account.
      
+
+** AWS Organizations
+
+   - A standard account is an account that is not a part of an
+     organization
+   - A standard account is used to create an orgaznization
+   - The organization doesn't exist within the AWS account itself
+   - When standard AWS accounts join an organization, they change from
+     being standard accounts to being memeber accounts of that
+     organization
+   - Master accounts are the legacy name for Management accounts
+   - Management accounts have
+     - Only one managmeent account
+     - 0 or more member accounts
+   - The Organization Root account is just a container within
+     an AWS Organization which contain AWS accounts, both member
+     accounts and management accounts
+     - The Organization Root can also be a container for other
+       containers called Organization Units or OUs
+   - Organizations are what enable consolidated billing. The payment
+     method associatied with the member accounts points to the payment
+     method on file for the Management account.
+     - *Note*: This is sometimes referred to as the Payer Account
+   - Usage of organizations also allows for volume discounts.
+
+     
+** Service Control Policies
+
+   - Policy document that defines the account permission boundries
+   - SCPs don't grant any permissions, they are just a boundry. They
+     define the limit of what is, and isn't allowed within the
+     account. You still need to give identites within that AWS account
+     permissions to AWS resources but any SCPs will limit the
+     permissions that can be assigned to individual identites
+   - Can be attached to the top-level organization, any organizational
+     units(OUs), and individual AWS accounts
+     - SCPs inherit down the organization tree
+   - The Management account is /never/ limited by SCPs attached to
+     that account either directly or indirectly
+   - The Account Root User is indirectly affected by SCPs. The root
+     user can't be directly limited but the SCP can apply to the
+     account itself and any identites under that account which in turn
+     affects the root user
+
+*** Allow List vs Deny List
+
+    - Allow List :: Block by default and allow certain services
+    - Deny List :: (/default/) Allow by default and block certain services
+    - The effective permsissions for an account are the overlap between
+      any identity policies and any applicable SCPs.
    
 * Default Virtual Public Cloud (VPC)
  
