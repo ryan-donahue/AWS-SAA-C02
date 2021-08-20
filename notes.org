@@ -272,8 +272,6 @@
     - IAM User can be a member of 10 groups
     
 
-
-
 ** IAM Groups
 
    - IAM Groups :: Containers for Users. They exist to make organizing
@@ -300,12 +298,13 @@
     
 
 ** IAM Roles
+
    - Role :: Something which represents a level of access inside
      an AWS Account. Short-term use by other identites
 
 *** IAM Roles vs IAM Users
 
-    IAM Roles and IAM Roles are both identites but whereas IAM Users
+    IAM Users and IAM Roles are both identites but whereas IAM Users
     are used for single identites that require long-term access, IAM
     Roles are best suited for multiple or unknown numbers of
     principals.
@@ -339,15 +338,13 @@
 
 ** When To Use Roles
 
-***  AWS Services
+*** AWS Services
+**** Automated Temporary Permissions
 
-    *Automated Temporary Permissions*
-
-     Services such as AWS Lambda. It
-     has no AWS permissions so it needs some way to get
-     permissions. Roles allow the granting of permisisons policies
-     using the =sts:AssumeRole= function which handles temporary
-     security credentials.
+     Services such as AWS Lambda. It has no AWS permissions so it
+     needs some way to get permissions. Roles allow the granting of
+     permisisons policies using the =sts:AssumeRole= function which
+     handles temporary security credentials.
 
      If you didn't use a role you'd have to hard code permissions into
      the Lambda function. This is a) security risk and b) it causes
@@ -358,11 +355,11 @@
      temporary set of credentials with enough time to complete a task
      and then the credentials are discarded.
 
-     *Circumventing IAM User Limits*
+**** Circumventing IAM User Limits
 
-     Because you don't know how many
-     copies of a service will be spawned you can't be sure that the
-     number will remain below the IAM User limits.
+     Because you don't know how many copies of a service will be
+     spawned you can't be sure that the number will remain below the
+     IAM User limits.
 
 *** Emergency (Break Glass) Situations
     In the event of an emergency a user who otherwise has more restrictive
@@ -370,6 +367,7 @@
     time. This activity will be logged.
 
 *** When Adding AWS into an Existing Corporate Environment
+    
     Roles are often used when you want to reuse your existing
     identites for use within AWS (e.g. Active Directory integration,
     Facebook, Twitter)
@@ -379,12 +377,13 @@
       more than 5000 identities.
 
     The benefits of using Roles for external accounts
-    - No AWS credentials on the app. If the external application
-      is compromised, the AWS Credentials will not be exposed
+    - No AWS credentials on the app. If the external application is
+      compromised, the AWS Credentials will not be exposed
     - Uses existing customer logins
     - Scales to millions of accounts (think mobile applications)
 
-*** Cross-account Access
+*** Cross-Account Access
+
     Accounts can access each other's AWS Services without having to
     create matching Partner account identites for each identity in
     your own account.
@@ -439,7 +438,48 @@
     - Deny List :: (/default/) Allow by default and block certain services
     - The effective permsissions for an account are the overlap between
       any identity policies and any applicable SCPs.
+
+*** CloudWatch Logs
+
+    - Public Service - usable from AWS or on-premises
+    - Store, monitor, and access logging data
+    - AWS Integrations - EC2, VPC Flow Logs, Lambda, etc...
+    - Metric Filter - Can generate metrics based on logs
+    - Log Event - The way in which services inject data into
+      CloudWatch Logs
+      - Format: =YYYYMMDD MESSAGE=
+    - Log Stream - Each log stream is an ordered set of log events for
+      a specific source for a specific thing
+    - Log Groups - Containers for multiple log streams, for the same
+      type of logging
+      - Log Groups also store configuration settins such as retention
+        settings and permissions
+      - Log Groups also store Metric Filters
+
+	
    
+** Cloud Trail
+   - Regional Service
+   - Not realtime
+   - Logs API call/activites as a CloudTrail Event
+   - CloudTrail Event - A record of an activity in an AWS account
+   - 90 stored by default in Event History. 
+     - Enabled by default - no cost for 90 day history. No S3 storage
+   - Trails are how you configure S3 and CWLogs
+   - CloudTrail Events can be one of two types, only one of which,
+     Management Events, are logged by default
+     - Management Events - (Control Plane Operations) provide
+       information about management operations that are performed on
+       resources in your AWS account (ex. creating/terminating an instance,
+       creating a VPC)
+     - Data Events - contain information about resource operations
+       performed on or in a resource (ex. objects being uploaded to
+       S3, objects being access from Ss3, when Lambda functions are
+       being invoked)
+   - IAM, STS, CloudFront => Global Service Events
+     - Global Service Events get logged to =us-east-1=
+   
+
 * Default Virtual Public Cloud (VPC)
  
 ** VPC CIDR
